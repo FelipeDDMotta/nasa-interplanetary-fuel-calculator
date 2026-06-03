@@ -1,5 +1,7 @@
 # 🚀 NASA Interplanetary Fuel Calculator
 
+![Application Preview](screenshot.png)
+
 Welcome to the **NASA Interplanetary Fuel Calculator**! This project is an advanced web application built to calculate the exact amount of fuel required for spacecraft to launch and land safely across different planets in the solar system.
 
 This application was developed as a solution to a Full-Stack Engineering challenge, prioritizing clean architecture, highly testable backend logic, and a dynamic real-time user interface.
