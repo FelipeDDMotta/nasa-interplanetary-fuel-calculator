@@ -21,7 +21,7 @@ defmodule FuelCalculatorWeb.CalculatorLive do
     <!-- Header -->
         <div class="text-center">
           <h1 class="text-4xl font-extrabold text-primary mb-2 tracking-tight">
-            🚀 Interplanetary Fuel Calculator
+            🚀 NASA Interplanetary Fuel Calculator
           </h1>
           <p class="text-base-content/70 text-lg">
             Calculate required fuel to launch and land safely across the solar system.
