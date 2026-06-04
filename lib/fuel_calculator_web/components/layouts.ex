@@ -21,7 +21,7 @@ defmodule FuelCalculatorWeb.Layouts do
     ~H"""
     <div class="min-h-screen bg-base-200">
       <header class="border-b border-base-300 bg-base-100/60 backdrop-blur">
-        <div class="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 sm:px-6">
+        <div class="flex w-full items-center justify-between px-4 py-3 sm:px-6 lg:px-10">
           <div class="flex items-center gap-2">
             <.icon name="hero-rocket-launch" class="size-5 text-primary" />
             <span class="font-mono text-sm font-bold uppercase tracking-[0.25em]">
@@ -35,7 +35,7 @@ defmodule FuelCalculatorWeb.Layouts do
         </div>
       </header>
 
-      <main class="mx-auto max-w-6xl px-4 py-8 sm:px-6">{render_slot(@inner_block)}</main>
+      <main class="w-full px-4 py-8 sm:px-6 lg:px-10">{render_slot(@inner_block)}</main>
     </div>
     <.flash_group flash={@flash} />
     """

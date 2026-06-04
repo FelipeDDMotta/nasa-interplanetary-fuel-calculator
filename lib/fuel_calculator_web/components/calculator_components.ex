@@ -47,7 +47,7 @@ defmodule FuelCalculatorWeb.CalculatorComponents do
       <p class="font-mono text-xs uppercase tracking-[0.2em] text-base-content/60">
         Total fuel required
       </p>
-      <p class="mt-3 font-mono text-5xl font-black tabular-nums text-primary drop-shadow">
+      <p class="mt-3 font-mono text-6xl font-black tabular-nums text-primary drop-shadow">
         {format_integer(@total)}
       </p>
       <p class="mt-1 font-mono text-sm text-base-content/60">kilograms</p>
