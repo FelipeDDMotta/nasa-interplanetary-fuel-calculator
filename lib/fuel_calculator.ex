@@ -1,9 +1,13 @@
 defmodule FuelCalculator do
   @moduledoc """
-  FuelCalculator keeps the contexts that define your domain
-  and business logic.
+  OTP application boundary for the fuel calculator.
 
-  Contexts are also responsible for managing your data, regardless
-  if it comes from the database, an external API or others.
+  The interplanetary flight domain lives under the `Interplanetary` namespace:
+
+    * `Interplanetary.Planet` — registry of supported planets and their gravity
+    * `Interplanetary.FuelCalculator` — pure fuel calculations
+    * `Interplanetary.Flight.Step` / `Interplanetary.MassInput` — validated user input
+
+  The web layer (LiveView, endpoint, components) lives under `FuelCalculatorWeb`.
   """
 end

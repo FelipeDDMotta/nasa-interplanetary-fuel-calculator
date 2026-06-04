@@ -7,12 +7,6 @@ config :fuel_calculator, FuelCalculatorWeb.Endpoint,
   secret_key_base: "raWxHJSp08KaNRepsBIToYOaylbGFqTsCxzUsum+t458LBHsDzAXlejHKx7HyI+x",
   server: false
 
-# In test we don't send emails
-config :fuel_calculator, FuelCalculator.Mailer, adapter: Swoosh.Adapters.Test
-
-# Disable swoosh api client as it is only required for production adapters
-config :swoosh, :api_client, false
-
 # Print only warnings and errors during test
 config :logger, level: :warning
 

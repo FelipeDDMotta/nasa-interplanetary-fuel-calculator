@@ -10,7 +10,26 @@ defmodule FuelCalculator.MixProject do
       start_permanent: Mix.env() == :prod,
       aliases: aliases(),
       deps: deps(),
-      listeners: [Phoenix.CodeReloader]
+      listeners: [Phoenix.CodeReloader],
+      test_coverage: [tool: ExCoveralls],
+      dialyzer: [
+        plt_add_apps: [:ex_unit, :mix],
+        plt_file: {:no_warn, "priv/plts/dialyzer-#{Mix.env()}.plt"},
+        flags: [:error_handling, :extra_return, :missing_return, :unmatched_returns]
+      ]
+    ]
+  end
+
+  # Tasks that should run in a specific Mix environment.
+  def cli do
+    [
+      preferred_envs: [
+        quality: :test,
+        coveralls: :test,
+        "coveralls.detail": :test,
+        "coveralls.html": :test,
+        "coveralls.github": :test
+      ]
     ]
   end
 
@@ -37,7 +56,7 @@ defmodule FuelCalculator.MixProject do
       {:phoenix_html, "~> 4.1"},
       {:phoenix_live_reload, "~> 1.2", only: :dev},
       {:phoenix_live_view, "~> 1.0"},
-      {:floki, ">= 0.30.0", only: :test},
+      {:lazy_html, ">= 0.1.0", only: :test},
       {:phoenix_live_dashboard, "~> 0.8.3"},
       {:esbuild, "~> 0.9", runtime: Mix.env() == :dev},
       {:tailwind, "~> 0.3", runtime: Mix.env() == :dev},
@@ -48,14 +67,20 @@ defmodule FuelCalculator.MixProject do
        app: false,
        compile: false,
        depth: 1},
-      {:swoosh, "~> 1.16"},
-      {:req, "~> 0.5"},
+      {:ecto, "~> 3.12"},
+      {:phoenix_ecto, "~> 4.6"},
       {:telemetry_metrics, "~> 1.0"},
       {:telemetry_poller, "~> 1.0"},
       {:gettext, "~> 0.26"},
       {:jason, "~> 1.2"},
       {:dns_cluster, "~> 0.1.1"},
-      {:bandit, "~> 1.5"}
+      {:bandit, "~> 1.5"},
+
+      # Quality tooling (dev/test only)
+      {:credo, "~> 1.7", only: [:dev, :test], runtime: false},
+      {:dialyxir, "~> 1.4", only: [:dev, :test], runtime: false},
+      {:stream_data, "~> 1.1", only: [:dev, :test]},
+      {:excoveralls, "~> 0.18", only: :test}
     ]
   end
 
@@ -74,6 +99,15 @@ defmodule FuelCalculator.MixProject do
         "tailwind fuel_calculator --minify",
         "esbuild fuel_calculator --minify",
         "phx.digest"
+      ],
+      # One command to run every quality gate, the way CI does (runs in :test,
+      # see `cli/0`): formatting, unused deps, linting, tests + coverage, types.
+      quality: [
+        "format --check-formatted",
+        "deps.unlock --check-unused",
+        "credo --strict",
+        "coveralls",
+        "dialyzer"
       ]
     ]
   end

@@ -1,0 +1,19 @@
+{
+  "coverage_options": {
+    "minimum_coverage": 90,
+    "treat_no_relevant_lines_as_covered": true
+  },
+  "skip_files": [
+    "test/",
+    "lib/fuel_calculator/application.ex",
+    "lib/fuel_calculator_web.ex",
+    "lib/fuel_calculator_web/endpoint.ex",
+    "lib/fuel_calculator_web/telemetry.ex",
+    "lib/fuel_calculator_web/gettext.ex",
+    "lib/fuel_calculator_web/router.ex",
+    "lib/fuel_calculator_web/controllers/error_html.ex",
+    "lib/fuel_calculator_web/controllers/error_json.ex",
+    "lib/fuel_calculator_web/components/core_components.ex",
+    "lib/fuel_calculator_web/components/layouts.ex"
+  ]
+}

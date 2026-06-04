@@ -35,3 +35,7 @@ fuel_calculator-*.tar
 npm-debug.log
 /assets/node_modules/
 
+# Dialyzer PLT files (rebuilt from deps; cached in CI instead).
+/priv/plts/*.plt
+/priv/plts/*.plt.hash
+
