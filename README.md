@@ -10,9 +10,6 @@ land on the planets of the Solar System, with a real-time **mission-control** co
 
 ![Application preview](screenshot.png)
 
-> The screenshot may lag behind the current UI — run the app locally to see the latest
-> Mission Control console.
-
 ## ✨ Features
 
 - **Dynamic flight-path builder** — add and remove `launch` / `land` manoeuvres for Earth,
